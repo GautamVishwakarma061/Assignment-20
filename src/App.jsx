@@ -20,7 +20,7 @@ import CartProvider from "./Providers/CartProvider";
 function App() {
   return (
     <>
-      <div className="flex flex-col overflow-y-auto bg-gray-200">
+      <div className="flex flex-col overflow-y-auto">
         <UserProvider>
           <CartProvider>
             <AlertProvider>

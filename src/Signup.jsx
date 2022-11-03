@@ -5,6 +5,7 @@ import { BsCart3 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import Input from "./Input";
+import { withUser } from "./withProvider";
 
 function callSignupApi(values, bag) {
   console.log(
@@ -53,7 +54,7 @@ function Signup({
 }) {
   return (
     <form onSubmit={handleSubmit}>
-      <div className="mx-auto bg-indigo-200 border-4 border-indigo-500 rounded-md w-80 ">
+      <div className="max-w-2xl mx-auto border-2 rounded-md w-80 ">
         <div className="m-auto">
           <BsCart3 className="m-auto text-indigo-500 text-9xl" />
           <p className="mb-2 text-2xl text-center text-white">Sign Up</p>
@@ -126,4 +127,4 @@ const myHOC = withFormik({
 });
 const EasySignup = myHOC(Signup);
 
-export default EasySignup;
+export default withUser(EasySignup);

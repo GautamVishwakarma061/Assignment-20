@@ -5,10 +5,15 @@ import Hemburger from "./Hemburger";
 import { FaHome } from "react-icons/fa";
 import { withCart, withUser } from "./withProvider";
 
-function Navbar({ handleLogout, cartCount }) {
+function Navbar({ user, handleLogout, cartCount }) {
   return (
     <>
-      <div>
+      <div className="border-b-2 ">
+        {user && (
+          <div className="text-xl font-semibold">
+            Welcome -{user.full_name.toUpperCase()}
+          </div>
+        )}
         <div className="gap-2 bg-white ">
           <div className="block sm:hidden ">
             <Hemburger />
@@ -46,11 +51,13 @@ function Navbar({ handleLogout, cartCount }) {
           </div>
           <div className="flex justify-end ">
             {/* <div>welcome,{user.full_name}</div> */}
-            <button onClick={handleLogout}>
-              <p className="px-1 bg-orange-500 rounded-md hover:text-white ">
-                Log out
-              </p>
-            </button>
+            {user && (
+              <button onClick={handleLogout}>
+                <p className="px-1 bg-orange-500 rounded-md hover:text-white ">
+                  Log out
+                </p>
+              </button>
+            )}
           </div>
         </div>
       </div>
